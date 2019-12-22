@@ -1,0 +1,19 @@
+{
+  "name": "propspotter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonambas/propspotter.git"
+  },
+  "author": "Jon Ambas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonambas/propspotter/issues"
+  },
+  "homepage": "https://github.com/jonambas/propspotter#readme"
+}
