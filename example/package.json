@@ -1,0 +1,16 @@
+{
+  "name": "propspotter-example",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "propspotter:start": "propspotter start",
+    "propspotter:build": "propspotter build",
+    "propspotter:source": "propspotter source",
+    "propspotter:clean": "propspotter clean"
+  },
+  "author": "Jon Ambas",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
