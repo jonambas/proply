@@ -12,5 +12,8 @@
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
+    "propspotter": "0.0.0-alpha.5",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   }
 }
