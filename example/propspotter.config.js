@@ -1,9 +1,6 @@
 module.exports = {
-  // components: "./src/components",
-  include: "/src/**/*.js",
+  title: "My App",
+  include: "/src/**/!(*.spec|*.test).js",
   port: 9000,
-  openBrowser: true,
-  webpackConfig: () => ({
-    // Custom webpack config goes here...
-  })
+  locationUrl: "https://github.com/jonambas/propspotter/tree/master/example"
 };
