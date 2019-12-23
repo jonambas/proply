@@ -31,7 +31,10 @@ module.exports = {
   locationUrl: "https://github.com/jonambas/propspotter/tree/master/example",
 
   // If true, opens a new browser tab when running the start command
-  openBrowser: true
+  openBrowser: true,
+
+  // Specifies where to output the webpack build
+  outputPath: "dist/propspotter"
 }
 ```
 
@@ -39,6 +42,7 @@ Modify your npm package:
 ```js
 // package.json
 "scripts": {
-  "propspotter:start": "propspotter start"
+  "propspotter:start": "propspotter start",
+  "propspotter:build": "propspotter build"
 }
 ```

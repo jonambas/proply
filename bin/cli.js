@@ -59,7 +59,12 @@ async function propspotter(command, flags) {
   });
 
   if (propspotter.hasOwnProperty(command)) {
-    propspotter[command]();
+    propspotter[command](err => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+    });
   } else {
     cli.showHelp();
     process.exit(1);
