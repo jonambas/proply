@@ -1,5 +1,12 @@
-### Propspotter
+## Propspotter
 
+Discover how your app's components are used. 
+
+![Displays component usage of your app through a table](demo.png)
+
+---
+
+#### Getting Started
 
 Install propspotter:
 ```bash
