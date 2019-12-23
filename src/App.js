@@ -4,7 +4,16 @@ import Table from './Table';
 import config from "__PROPSPOTTER_CONFIG__";
 
 function App() {
-  document.body.style.fontSize = '16px';
+
+  // Yeh, i'm lazy
+  React.useEffect(() => {
+    var style = document.createElement("style");
+    style.innerHTML = `
+      body { font-size: 16px; }
+      * { box-sizing: border-box; }
+    `;
+    document.head.appendChild(style);
+  },[]);
 
   return (
     <ThemeProvider>
@@ -13,12 +22,13 @@ function App() {
         maxWidth="1080px"
         my="800"
         mx="auto"
+        style={{ '*': { 'box-sizing': 'border-box' }}}
       >
         <Text as="h1" fontSize="300" lineHeight="300" mb="800">
-          {config.title || 'Propspotter'}
+          {config.title || "Propspotter"}
         </Text>
 
-        <Table />
+        <Table config={config} />
       </Box>
     </ThemeProvider>
   );
