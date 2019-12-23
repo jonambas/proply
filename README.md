@@ -1,12 +1,12 @@
 ### Propspotter
 
 
-Install:
+Install propspotter:
 ```bash
 npm i propspotter@alpha
 ```
 
-Create a config file
+Create a config file in your app:
 ```js
 // propspotter.config.js
 module.exports = {
@@ -16,8 +16,8 @@ module.exports = {
 }
 ```
 
-Modify your npm package
-```
+Modify your npm package:
+```js
 // package.json
 "scripts": {
   "propspotter:start": "propspotter start"
