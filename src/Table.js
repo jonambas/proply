@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text } from "@sparkpost/matchbox";
 import data from "../.propspottercache/data.json";
+import { locationUrl } from "__PROPSPOTTER_CONFIG__";
 
 function Th(props) {
   return (
@@ -83,7 +84,20 @@ function Component(props) {
               <Tr key={i}>
                 <Td>{entry.name}</Td>
                 <Td fontSize="100">
-                  {entry.fileName}:{entry.ln}
+                  {locationUrl
+                   ? (
+                    <Text
+                      as='a'
+                      href={`${locationUrl}/${entry.fileName}#L${entry.line}`}
+                      title={`Visit ${entry.fileName}`}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      color='blue.700'
+                    >
+                      {entry.fileName}:{entry.line}
+                    </Text>
+                   ) : `${entry.fileName}:${entry.line}`}
+                  
                 </Td>
                 <Td>
                   {entry.props.map(prop => (

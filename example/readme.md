@@ -1,3 +1,3 @@
 A fake app to demonstrate Propspotter UI
 
-`npm link` from the root directory into this directory.
+`npm link` from root or `npm i propspotter@alpha` in this directory.
