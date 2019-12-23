@@ -1,6 +1,6 @@
 {
   "name": "propspotter",
-  "version": "0.0.0-alpha.5",
+  "version": "0.0.0-alpha.6",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/jonambas/propspotter#readme",
   "dependencies": {
-    "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
