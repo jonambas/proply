@@ -5,7 +5,7 @@ import config from "__PROPSPOTTER_CONFIG__";
 
 function App() {
   document.body.style.fontSize = '16px';
-  console.log(config)
+
   return (
     <ThemeProvider>
       <Box
