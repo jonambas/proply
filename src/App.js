@@ -11,6 +11,7 @@ function App() {
         maxWidth="1080px"
         my="800"
         mx="auto"
+        px="300"
       >
         <Text as="h1" fontSize="300" lineHeight="300" mb="800">
           {config.title || 'Propspotter'}
