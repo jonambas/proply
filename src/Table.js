@@ -4,7 +4,7 @@ import raw from '../.propspottercache/data.json';
 import { Table, Th, Td, PropTd, LocationTd, Tr } from './TableComponents';
 import Button from './Button';
 import { useTable, useGlobalFilter } from 'react-table';
-import matchSorter from 'match-sorter';
+import getFilteredResults from './filtering/getFilteredResults';
 
 function Input(props) {
   return (
@@ -186,6 +186,7 @@ function GlobalFilter(props) {
         });
       }}
       placeholder={`Search ${count} components...`}
+      mb="200"
     />
   );
 }
@@ -201,103 +202,6 @@ function TableWrapper({ config }) {
 
   const data = React.useMemo(() => raw, []);
 
-  const globalFilter = (arr, id, value = {}) => {
-    let filteredResults = arr;
-    if (value.filters.length) {
-      value.filters.forEach(filter => {
-        const { type, name: filterName, value: filterValue, matcher } = filter;
-
-        if (type === 'prop' && !!filterName) {
-          switch (matcher) {
-            case 'equals':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.name === filterName && value === filterValue;
-              });
-              break;
-
-            case 'includes':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.props.filter(
-                  ({ name, value }) =>
-                    name === filterName && value.includes(filterValue)
-                ).length;
-              });
-              break;
-
-            case 'set':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.props
-                  .map(({ name }) => name)
-                  .includes(filterName);
-              });
-              break;
-
-            case 'notSet':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return !values.props
-                  .map(({ name }) => name)
-                  .includes(filterName);
-              });
-              break;
-
-            default:
-              break;
-          }
-        }
-
-        if (type === 'prop' && !!filterName) {
-          switch (matcher) {
-            case 'equals':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.props.filter(
-                  ({ name, value }) =>
-                    name === filterName && value === filterValue
-                ).length;
-              });
-              break;
-
-            case 'includes':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.props.filter(
-                  ({ name, value }) =>
-                    name === filterName && value.includes(filterValue)
-                ).length;
-              });
-              break;
-
-            case 'set':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return values.props
-                  .map(({ name }) => name)
-                  .includes(filterName);
-              });
-              break;
-
-            case 'notSet':
-              filteredResults = filteredResults.filter(({ values }) => {
-                return !values.props
-                  .map(({ name }) => name)
-                  .includes(filterName);
-              });
-              break;
-
-            default:
-              break;
-          }
-        }
-      });
-    }
-
-    console.log(filteredResults);
-    return matchSorter(filteredResults, value.global, {
-      keys: [
-        'values.name',
-        'values.location.fileName',
-        item => item.values.props.length && item.values.props.map(i => i.name)
-      ]
-    });
-  };
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -307,7 +211,10 @@ function TableWrapper({ config }) {
     preGlobalFilteredRows,
     setGlobalFilter,
     state
-  } = useTable({ data, columns, globalFilter }, useGlobalFilter);
+  } = useTable(
+    { data, columns, globalFilter: getFilteredResults },
+    useGlobalFilter
+  );
 
   const firstPageRows = rows.slice(0, 100);
 
