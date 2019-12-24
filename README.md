@@ -66,6 +66,10 @@ And finally, run propspotter
 npm run propspotter:start
 ```
 
+### Limitations
+
+Propspotter uses typescript's compiler API to parse through your JSX. Components will only be provided by the name used when rendered in JSX, ie `<MyComponent/>`. Because of this, components may not accurately mirror their `displayName` if they are aliased or renamed, and will not be detected unless explicity renered with JSX.
+
 ---
 
 ### License
