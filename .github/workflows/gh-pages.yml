@@ -14,4 +14,4 @@ jobs:
       env:
         EMAIL: jon@jonambas.com               # must be a verified email
         GH_TOKEN: ${{ secrets.ACCESS_TOKEN }} # https://github.com/settings/tokens
-        BUILD_DIR: /example/propspotter-build  # "_site/" by default
+        BUILD_DIR: example/propspotter-build/  # "_site/" by default
