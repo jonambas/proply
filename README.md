@@ -14,7 +14,7 @@ Propspotter runs through your app's JSX and allows you to explore how your React
 
 ---
 
-#### Getting Started
+### Getting Started
 
 Install `propspotter` in your app:
 ```bash
@@ -33,15 +33,18 @@ module.exports = {
   include: "/src/**/!(*.spec|*.test).js",
 
   // Specifies which port Propspotter should use
+  // Defaults to 9000
   port: 9000,
 
   // If provided, prepends this url to component locations and turns them into links
   locationUrl: "https://github.com/jonambas/propspotter/tree/master/example",
 
-  // If true, opens a new browser tab when running the start command
+  // If true, opens webpack dev server in a new tab when running the start command
+  // Defaults to true
   openBrowser: true,
 
   // Specifies where to output the webpack build
+  // Defaults to "dist/propspotter"
   outputPath: "dist/propspotter"
 }
 ```
@@ -54,3 +57,13 @@ Add the following scripts to your npm `package.json`.
   "propspotter:build": "propspotter build"
 }
 ```
+
+And finally, run propspotter
+```bash
+npm run propspotter:start
+```
+
+---
+
+### License
+MIT
