@@ -1,12 +1,12 @@
-import React from 'react' ;
-import { Box, Text } from "@sparkpost/matchbox";
+import React from 'react';
+import { Box, Text } from '@sparkpost/matchbox';
 
 export function Table(props) {
   return (
     <Box
       as="table"
       width="100%"
-      style={{ borderCollapse: "collapse" }}
+      style={{ borderCollapse: 'collapse' }}
       {...props}
     />
   );

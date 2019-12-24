@@ -1,24 +1,24 @@
 import React from 'react';
-import { Box, Text } from "@sparkpost/matchbox";
-import raw from "../.propspottercache/data.json";
+import { Box, Text } from '@sparkpost/matchbox';
+import raw from '../.propspottercache/data.json';
 import { Table, Th, Td, PropTd, LocationTd, Tr } from './TableComponents';
-import { useTable, useGlobalFilter } from "react-table";
-import matchSorter from "match-sorter";
+import { useTable, useGlobalFilter } from 'react-table';
+import matchSorter from 'match-sorter';
 
 function Input(props) {
   return (
     <Box
-      border='400'
-      borderRadius='200'
-      fontSize='100'
-      width='100%'
-      mb='100'
-      p='200'
-      as='input'
-      type='text'
+      border="400"
+      borderRadius="200"
+      fontSize="100"
+      width="100%"
+      mb="100"
+      p="200"
+      as="input"
+      type="text"
       {...props}
     />
-  )
+  );
 }
 
 function GlobalFilter(props) {
@@ -28,7 +28,7 @@ function GlobalFilter(props) {
   return (
     <>
       <Input
-        value={globalFilter || ""}
+        value={globalFilter || ''}
         onChange={e => {
           setGlobalFilter(e.target.value || undefined);
         }}
@@ -38,7 +38,7 @@ function GlobalFilter(props) {
         <Text as="span" fontSize="13px" color="gray.700">
           Showing
           <Text as="span" color="gray.700">
-            {" "}
+            {' '}
             {props.displayCount} of {count} components
           </Text>
         </Text>
@@ -50,23 +50,23 @@ function GlobalFilter(props) {
 function TableWrapper({ config }) {
   const columns = React.useMemo(() => {
     return [
-      { Header: "Component", accessor: "name" },
-      { Header: "Location", accessor: "location" },
-      { Header: "Prop Configuration", accessor: "props" }
+      { Header: 'Component', accessor: 'name' },
+      { Header: 'Location', accessor: 'location' },
+      { Header: 'Prop Configuration', accessor: 'props' }
     ];
   }, []);
 
-  const data = React.useMemo(() => raw, [raw]);
+  const data = React.useMemo(() => raw, []);
 
   const globalFilter = (arr, id, value) => {
     return matchSorter(arr, value, {
       keys: [
-        "values.name",
-        "values.location.fileName",
-        item => (item.values.props.length && item.values.props.map(i => i.name))
+        'values.name',
+        'values.location.fileName',
+        item => item.values.props.length && item.values.props.map(i => i.name)
       ]
     });
-  }
+  };
 
   const {
     getTableProps,
@@ -95,24 +95,24 @@ function TableWrapper({ config }) {
           {headerGroups.map(headerGroup => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <Th {...column.getHeaderProps()}>{column.render("Header")}</Th>
+                <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
               ))}
             </Tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {firstPageRows.map((row, i) => {
+          {firstPageRows.map(row => {
             prepareRow(row);
             return (
               <Tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  if (cell.column.id === "props") {
+                  if (cell.column.id === 'props') {
                     return (
                       <PropTd value={cell.value} {...cell.getCellProps()} />
                     );
                   }
 
-                  if (cell.column.id === "location") {
+                  if (cell.column.id === 'location') {
                     return (
                       <LocationTd
                         locationUrl={config.locationUrl}
@@ -123,7 +123,7 @@ function TableWrapper({ config }) {
                   }
 
                   return (
-                    <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
+                    <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>
                   );
                 })}
               </Tr>
@@ -133,6 +133,6 @@ function TableWrapper({ config }) {
       </Table>
     </>
   );
-};
+}
 
 export default TableWrapper;
