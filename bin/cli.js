@@ -1,5 +1,5 @@
 #! /usr/bin/env node
-const path = require("path");
+const path = require('path');
 const meow = require('meow');
 const lib = require('../lib');
 const findUp = require('find-up');
@@ -23,12 +23,12 @@ const cli = meow(
   {
     flags: {
       help: {
-        type: "boolean",
-        alias: "h"
+        type: 'boolean',
+        alias: 'h'
       },
       version: {
-        type: "boolean",
-        alias: "v"
+        type: 'boolean',
+        alias: 'v'
       }
     }
   }
@@ -47,7 +47,9 @@ async function propspotter(command, flags) {
   const configPath = await findUp('propspotter.config.js');
 
   if (!configPath) {
-    console.error('Please add a propspotter.config.js to the root of your project.');
+    console.error(
+      'Please add a propspotter.config.js to the root of your project.'
+    );
     process.exit(1);
   }
 
@@ -69,6 +71,6 @@ async function propspotter(command, flags) {
     cli.showHelp();
     process.exit(1);
   }
-};
+}
 
 propspotter(cli.input[0], cli.flags);

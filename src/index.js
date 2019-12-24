@@ -6,16 +6,13 @@ const out = document.createElement('div');
 document.body.append(out);
 
 function renderPropspotter() {
-  ReactDOM.render(
-    <App />,
-    out
-  );
+  ReactDOM.render(<App />, out);
 }
 
 renderPropspotter();
 
 if (module.hot) {
-  module.hot.accept("./App", () => {
+  module.hot.accept('./App', () => {
     renderPropspotter();
   });
 }
