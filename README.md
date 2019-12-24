@@ -68,7 +68,11 @@ npm run propspotter:start
 
 ### Limitations
 
-Propspotter uses typescript's compiler API to parse through your JSX. Components will only be provided by the name used when rendered in JSX, ie `<MyComponent/>`. Because of this, components may not accurately mirror their `displayName` if they are aliased or renamed, and will not be detected unless explicitly rendered with JSX.
+Propspotter uses typescript's compiler API to parse through your JSX.
+
+- Components will only be detected when explicitly rendered with JSX, ie `<MyComponent />`.
+- Components may not accurately represent their `displayName` if they are aliased or renamed.
+- Prop values that contain expressions such as variables or functions are not evaluated, but are stringified and truncated to 16 characters. Eg, you can filter `className` to includes `styles.Class`.
 
 ---
 
