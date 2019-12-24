@@ -8,7 +8,9 @@ Propspotter runs through your app's JSX and allows you to explore how your React
 - [Example App Demo](https://jonambas.github.io/propspotter/)
 - [SparkPost UI Demo](https://propspotter-2web2ui.now.sh/)
 
-![Displays component usage of your app through a table](demo.png)
+---
+
+![Image of the propspotter interface in SparkPost's web app](demo.png)
 
 ---
 
