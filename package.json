@@ -53,7 +53,6 @@
     "typescript": "^3.7.4",
     "webpack": "^4.41.4",
     "webpack-dev-server": "^3.10.1",
-    "webpack-merge": "^4.2.2",
     "yargs-parser": "^16.1.0"
   },
   "devDependencies": {
