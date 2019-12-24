@@ -1,8 +1,12 @@
 ## Propspotter
 
-A tool to help explore your app's component usage.
+Propspotter runs through your app's JSX and allows you to explore how your React components are being used. Propspotter provides a standalone environment that can be used or deployed with your design system documentation.
 
-[Example App Demo](https://jonambas.github.io/propspotter/docs/)
+
+### Demos
+
+- [Example App Demo](https://jonambas.github.io/propspotter/)
+- [SparkPost UI Demo](https://propspotter-2web2ui.now.sh/)
 
 ![Displays component usage of your app through a table](demo.png)
 
@@ -10,12 +14,12 @@ A tool to help explore your app's component usage.
 
 #### Getting Started
 
-Install propspotter:
+Install `propspotter` in your app:
 ```bash
 npm i propspotter@alpha
 ```
 
-Create a config file in your app:
+Create a propspotter config file named `propspotter.config.js` in the root directory of your app:
 ```js
 // propspotter.config.js
 module.exports = {
@@ -40,7 +44,7 @@ module.exports = {
 }
 ```
 
-Modify your npm package:
+Add the following scripts to your npm `package.json`.
 ```js
 // package.json
 "scripts": {
