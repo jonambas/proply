@@ -1,6 +1,8 @@
 ## Propspotter
 
-Discover how your app's components are used. 
+A tool to help explore your app's component usage.
+
+[Example App Demo](https://jonambas.github.io/propspotter/docs/)
 
 ![Displays component usage of your app through a table](demo.png)
 
