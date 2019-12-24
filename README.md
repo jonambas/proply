@@ -72,7 +72,7 @@ Propspotter uses typescript's compiler API to parse through your JSX.
 
 - Components will only be detected when explicitly rendered with JSX, ie `<MyComponent />`.
 - Components may not accurately represent their `displayName` if they are aliased or renamed.
-- Prop values that contain expressions such as variables or functions are not evaluated, but are stringified and truncated to 16 characters. Eg, you can filter `className` to includes `styles.Class`.
+- Prop values that contain expressions such as variables or functions are not evaluated, but are stringified and truncated. Eg, if you use css-modules, you can filter `className` to include `styles.css-class`.
 
 ---
 
