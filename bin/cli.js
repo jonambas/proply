@@ -47,9 +47,7 @@ async function propspotter(command, flags) {
   const configPath = await findUp('propspotter.config.js');
 
   if (!configPath) {
-    console.error(
-      'Please add a propspotter.config.js to the root of your project.'
-    );
+    console.error('Please add a propspotter.config.js to the root of your project.');
     process.exit(1);
   }
 
@@ -61,7 +59,7 @@ async function propspotter(command, flags) {
   });
 
   if (propspotter.hasOwnProperty(command)) {
-    propspotter[command](err => {
+    propspotter[command]((err) => {
       if (err) {
         console.error(err);
         process.exit(1);

@@ -1,25 +1,28 @@
 import React from 'react';
-import { ThemeProvider, Box, Text } from '@sparkpost/matchbox';
+import Box from '@sweatpants/box';
 import Table from './Table';
+import ThemeSwitcher from './ThemeSwitcher';
 import config from '__PROPSPOTTER_CONFIG__';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Box
-        fontFamily="-apple-system,BlinkMacSystemFont,'San Francisco','Segoe UI',Roboto,Helvetica,sans-serif"
-        maxWidth="1080px"
-        my="800"
-        mx="auto"
-        px="300"
-      >
-        <Text as="h1" fontSize="300" lineHeight="300" mb="800">
-          {config.title || 'Propspotter'}
-        </Text>
+    <ThemeSwitcher>
+      <Box bg="bg" color="fg" minHeight="100vh">
+        <Box
+          fontFamily="-apple-system,BlinkMacSystemFont,'San Francisco','Segoe UI',Roboto,Helvetica,sans-serif"
+          maxWidth="1080px"
+          py="800"
+          mx="auto"
+          px="300"
+        >
+          <Box as="h1" fontSize="300" lineHeight="1.5em" mb="800">
+            {config.title || 'Propspotter'}
+          </Box>
 
-        <Table config={config} />
+          <Table config={config} />
+        </Box>
       </Box>
-    </ThemeProvider>
+    </ThemeSwitcher>
   );
 }
 
