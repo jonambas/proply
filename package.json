@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonambas/propspotter.git"
+    "url": "git+https://github.com/jonambas/propspot.git"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonambas/propspotter/issues"
+    "url": "https://github.com/jonambas/propspot/issues"
   },
-  "homepage": "https://github.com/jonambas/propspotter#readme",
+  "homepage": "https://github.com/jonambas/propspot#readme",
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
