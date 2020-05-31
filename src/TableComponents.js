@@ -1,15 +1,8 @@
 import React from 'react';
-import { Box, Text } from '@sparkpost/matchbox';
+import Box from '@sweatpants/box';
 
 export function Table(props) {
-  return (
-    <Box
-      as="table"
-      width="100%"
-      style={{ borderCollapse: 'collapse' }}
-      {...props}
-    />
-  );
+  return <Box as="table" width="100%" style={{ borderCollapse: 'collapse' }} {...props} />;
 }
 
 export function Th(props) {
@@ -30,7 +23,7 @@ export function PropTd({ value, ...rest }) {
           px="100"
           py="2px"
           borderRadius="200"
-          bg="gray.200"
+          bg="bg"
           fontSize="100"
           key={`${i}-${prop.name}`}
         >
@@ -45,16 +38,15 @@ export function LocationTd({ value, locationUrl, ...rest }) {
   return (
     <Td fontSize="100" {...rest}>
       {locationUrl ? (
-        <Text
+        <Box
           as="a"
           href={`${locationUrl}/${value.fileName}#L${value.line}`}
           title={`Visit ${value.fileName}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          color="blue.700"
+          isExternalLink
+          color="fg"
         >
           {value.fileName}:{value.line}
-        </Text>
+        </Box>
       ) : (
         `${value.fileName}:${value.line}`
       )}
