@@ -1,30 +1,30 @@
-## Propspotter
+## What is this?
 
-Propspotter runs through your app's JSX and allows you to explore how your React components are being used. Propspotter provides a standalone environment that can be used or deployed with your design system documentation.
+Propspot runs through your app's JSX and allows you to explore how your React components are being used. propspot provides a standalone environment that can be used or deployed with your design system documentation.
 
 ### Demos
 
-- [Example App Demo](https://jonambas.github.io/propspotter/)
-- [SparkPost UI Demo](https://propspotter-2web2ui.now.sh/)
+- [Example App Demo](https://jonambas.github.io/propspot/)
+- [SparkPost UI Demo](https://propspot-2web2ui.now.sh/)
 
 ---
 
-![Image of the propspotter interface in SparkPost's web app](demo.png)
+![Image of the propspot interface in SparkPost's web app](demo.png)
 
 ---
 
 ### Getting Started
 
-Install `propspotter` in your app:
+Install `propspot` in your app:
 
 ```bash
-npm i propspotter@alpha
+npm i propspot@alpha
 ```
 
-Create a propspotter config file named `propspotter.config.js` in the root directory of your app:
+Create a propspot config file named `propspot.config.js` in the root directory of your app:
 
 ```js
-// propspotter.config.js
+// propspot.config.js
 module.exports = {
   // Sets page title
   title: 'My App',
@@ -33,20 +33,20 @@ module.exports = {
   // Indicates where component data will be sourced
   include: '/src/**/!(*.spec|*.test).js',
 
-  // Specifies which port Propspotter should use
+  // Specifies which port Propspot should use
   // Defaults to 9000
   port: 9000,
 
   // If provided, prepends this url to component locations and turns them into links
-  locationUrl: 'https://github.com/jonambas/propspotter/tree/master/example',
+  locationUrl: 'https://github.com/jonambas/propspot/tree/master/example',
 
   // If true, opens webpack dev server in a new tab when running the start command
   // Defaults to true
   openBrowser: true,
 
   // Specifies where to output the webpack build
-  // Defaults to "dist/propspotter"
-  outputPath: 'dist/propspotter'
+  // Defaults to "dist/propspot"
+  outputPath: 'dist/propspot'
 };
 ```
 
@@ -55,20 +55,20 @@ Add the following scripts to your npm `package.json`.
 ```js
 // package.json
 "scripts": {
-  "propspotter:start": "propspotter start",
-  "propspotter:build": "propspotter build"
+  "propspot:start": "propspot start",
+  "propspot:build": "propspot build"
 }
 ```
 
-And finally, run propspotter
+And finally, run propspot
 
 ```bash
-npm run propspotter:start
+npm run propspot:start
 ```
 
 ### Limitations
 
-Propspotter uses typescript's compiler API to parse through your JSX.
+propspot uses typescript's compiler API to parse through your JSX.
 
 - Components will only be detected when explicitly rendered with JSX, ie `<MyComponent />`.
 - Components may not accurately represent their `displayName` if they are aliased or renamed.
