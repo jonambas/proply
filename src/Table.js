@@ -11,6 +11,10 @@ const Focus = styled(Box)`
   position: relative;
   box-shadow: 0px 0px 0px 1px ${(props) => props.theme.colors.bg};
   transition: box-shadow 0.1s;
+
+  ::placeholder {
+    color: ${(props) => props.theme.colors.fg};
+  }
   &:focus {
     z-index: 1;
     outline: none;
@@ -23,8 +27,9 @@ function Input(props) {
   return (
     <Focus
       border="1px solid #fff"
-      borderColor="fg"
+      borderColor="mg"
       borderRadius="1px"
+      color="fg"
       fontSize="100"
       lineHeight="1.5em"
       width="100%"
@@ -41,7 +46,7 @@ function Select(props) {
   return (
     <Box position="relative">
       <Focus
-        borderColor="fg"
+        borderColor="mg"
         borderRadius="1px"
         fontSize="100"
         lineHeight="1.5em"
