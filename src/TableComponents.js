@@ -1,5 +1,6 @@
 import React from 'react';
 import Box from '@sweatpants/box';
+import Inline from '@sweatpants/inline';
 
 export function Table(props) {
   return <Box as="table" width="100%" style={{ borderCollapse: 'collapse' }} {...props} />;
@@ -16,20 +17,23 @@ export function Td(props) {
 export function PropTd({ value, ...rest }) {
   return (
     <Td {...rest}>
-      {value.map((prop, i) => (
-        <Box
-          display="inline-block"
-          m="100"
-          px="100"
-          py="2px"
-          borderRadius="200"
-          bg="bg"
-          fontSize="100"
-          key={`${i}-${prop.name}`}
-        >
-          {prop.name}
-        </Box>
-      ))}
+      <Inline space="0.5rem" data-id="inline">
+        {value.map((prop, i) => (
+          <Box key={`${i}-${prop.name}`}>
+            <Box
+              display="inline-block"
+              px="6px"
+              py="3px"
+              borderRadius="3px"
+              bg="mg"
+              fontSize="100"
+              title={`Value: ${prop.value || 'true'}`}
+            >
+              {prop.name}
+            </Box>
+          </Box>
+        ))}
+      </Inline>
     </Td>
   );
 }
