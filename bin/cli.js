@@ -7,13 +7,13 @@ const findUp = require('find-up');
 const cli = meow(
   `
   Usage
-    $ propspotter <command> [options...]
+    $ propspot <command> [options...]
   
   Commands
     source         Generates JSON data of your App's component
-    start          Starts the propspotter UI
-    build          Builds the prospotter UI
-    clean          Removes the component cache
+    start          Starts the propspot UI
+    build          Builds the prospot UI
+    clean          Clears the propspot component cache
     help           Displays this usage guide
 
 	Options
@@ -34,7 +34,7 @@ const cli = meow(
   }
 );
 
-async function propspotter(command, flags) {
+async function propspot(command, flags) {
   if (flags.version) {
     cli.showVersion(1);
   }
@@ -44,22 +44,22 @@ async function propspotter(command, flags) {
     process.exit(1);
   }
 
-  const configPath = await findUp('propspotter.config.js');
+  const configPath = await findUp('propspot.config.js');
 
   if (!configPath) {
-    console.error('Please add a propspotter.config.js to the root of your project.');
+    console.error('Please add a propspot.config.js to the root of your project.');
     process.exit(1);
   }
 
   const config = require(configPath);
 
-  const propspotter = lib({
+  const propspot = lib({
     cwd: path.dirname(configPath),
     ...config
   });
 
-  if (propspotter.hasOwnProperty(command)) {
-    propspotter[command]((err) => {
+  if (propspot.hasOwnProperty(command)) {
+    propspot[command]((err) => {
       if (err) {
         console.error(err);
         process.exit(1);
@@ -71,4 +71,4 @@ async function propspotter(command, flags) {
   }
 }
 
-propspotter(cli.input[0], cli.flags);
+propspot(cli.input[0], cli.flags);

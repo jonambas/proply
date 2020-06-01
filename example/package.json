@@ -1,18 +1,18 @@
 {
-  "name": "propspotter-example",
+  "name": "propspot-example",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "propspotter:start": "propspotter start",
-    "propspotter:build": "propspotter build",
-    "propspotter:source": "propspotter source",
-    "propspotter:clean": "propspotter clean"
+    "propspot:start": "propspot start",
+    "propspot:build": "propspot build",
+    "propspot:source": "propspot source",
+    "propspot:clean": "propspot clean"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
-    "propspotter": "0.0.0-alpha.13",
+    "propspot": "0.0.0-alpha.15",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
