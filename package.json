@@ -1,10 +1,10 @@
 {
-  "name": "propspot",
+  "name": "relight",
   "version": "0.0.0-alpha.16",
   "description": "",
   "main": "index.js",
   "bin": {
-    "propspot": "bin/cli.js"
+    "relight": "bin/cli.js"
   },
   "scripts": {
     "format": "prettier --write '**/*.{js,md}'",
@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonambas/propspot.git"
+    "url": "git+https://github.com/jonambas/relight.git"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonambas/propspot/issues"
+    "url": "https://github.com/jonambas/relight/issues"
   },
-  "homepage": "https://github.com/jonambas/propspot#readme",
+  "homepage": "https://github.com/jonambas/relight#readme",
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",

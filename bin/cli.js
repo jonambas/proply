@@ -7,13 +7,13 @@ const findUp = require('find-up');
 const cli = meow(
   `
   Usage
-    $ propspot <command> [options...]
+    $ relight <command> [options...]
   
   Commands
     source         Generates JSON data of your App's component
-    start          Starts the propspot UI
+    start          Starts the relight UI
     build          Builds the prospot UI
-    clean          Clears the propspot component cache
+    clean          Clears the relight component cache
     help           Displays this usage guide
 
 	Options
@@ -34,7 +34,7 @@ const cli = meow(
   }
 );
 
-async function propspot(command, flags) {
+async function relight(command, flags) {
   if (flags.version) {
     cli.showVersion(1);
   }
@@ -44,22 +44,22 @@ async function propspot(command, flags) {
     process.exit(1);
   }
 
-  const configPath = await findUp('propspot.config.js');
+  const configPath = await findUp('relight.config.js');
 
   if (!configPath) {
-    console.error('Please add a propspot.config.js to the root of your project.');
+    console.error('Please add a relight.config.js to the root of your project.');
     process.exit(1);
   }
 
   const config = require(configPath);
 
-  const propspot = lib({
+  const relight = lib({
     cwd: path.dirname(configPath),
     ...config
   });
 
-  if (propspot.hasOwnProperty(command)) {
-    propspot[command]((err) => {
+  if (relight.hasOwnProperty(command)) {
+    relight[command]((err) => {
       if (err) {
         console.error(err);
         process.exit(1);
@@ -71,4 +71,4 @@ async function propspot(command, flags) {
   }
 }
 
-propspot(cli.input[0], cli.flags);
+relight(cli.input[0], cli.flags);

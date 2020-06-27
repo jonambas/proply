@@ -1,3 +1,3 @@
-A fake app to demonstrate Propspot UI
+A fake app to demonstrate Relight UI
 
-`npm link` from root or `npm i propspot@alpha` in this directory.
+`npm link` from root or `npm i relight@alpha` in this directory.

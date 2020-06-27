@@ -20,6 +20,6 @@ jobs:
         run: |
           cd example
           npm ci
-          npm run propspot:build
+          npm run relight:build
         env:
           CI: true

@@ -12,14 +12,14 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-function renderPropspot() {
+function renderRelight() {
   ReactDOM.render(<App />, out);
 }
 
-renderPropspot();
+renderRelight();
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    renderPropspot();
+    renderRelight();
   });
 }
