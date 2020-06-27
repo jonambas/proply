@@ -1,18 +1,18 @@
 {
-  "name": "propspot-example",
+  "name": "proply-example",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "propspot:start": "propspot start",
-    "propspot:build": "propspot build",
-    "propspot:source": "propspot source",
-    "propspot:clean": "propspot clean"
+    "proply:start": "proply start",
+    "proply:build": "proply build",
+    "proply:source": "proply source",
+    "proply:clean": "proply clean"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
-    "propspot": "0.0.0-alpha.16",
+    "proply": "0.0.0-alpha.20",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

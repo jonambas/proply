@@ -1,6 +1,6 @@
 import React from 'react';
 import Box from '@sweatpants/box';
-import raw from '../.propspotcache/data.json';
+import raw from '../.proply/data.json';
 import { Table, Th, Td, PropTd, LocationTd, Tr } from './TableComponents';
 import Button from './Button';
 import { useTable, useGlobalFilter } from 'react-table';
