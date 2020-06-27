@@ -7,13 +7,13 @@ const findUp = require('find-up');
 const cli = meow(
   `
   Usage
-    $ relight <command> [options...]
+    $ reprop <command> [options...]
   
   Commands
     source         Generates JSON data of your App's component
-    start          Starts the relight UI
+    start          Starts the reprop UI
     build          Builds the prospot UI
-    clean          Clears the relight component cache
+    clean          Clears the reprop component cache
     help           Displays this usage guide
 
 	Options
@@ -34,7 +34,7 @@ const cli = meow(
   }
 );
 
-async function relight(command, flags) {
+async function reprop(command, flags) {
   if (flags.version) {
     cli.showVersion(1);
   }
@@ -44,22 +44,22 @@ async function relight(command, flags) {
     process.exit(1);
   }
 
-  const configPath = await findUp('relight.config.js');
+  const configPath = await findUp('reprop.config.js');
 
   if (!configPath) {
-    console.error('Please add a relight.config.js to the root of your project.');
+    console.error('Please add a reprop.config.js to the root of your project.');
     process.exit(1);
   }
 
   const config = require(configPath);
 
-  const relight = lib({
+  const reprop = lib({
     cwd: path.dirname(configPath),
     ...config
   });
 
-  if (relight.hasOwnProperty(command)) {
-    relight[command]((err) => {
+  if (reprop.hasOwnProperty(command)) {
+    reprop[command]((err) => {
       if (err) {
         console.error(err);
         process.exit(1);
@@ -71,4 +71,4 @@ async function relight(command, flags) {
   }
 }
 
-relight(cli.input[0], cli.flags);
+reprop(cli.input[0], cli.flags);

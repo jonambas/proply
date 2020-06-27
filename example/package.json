@@ -1,18 +1,18 @@
 {
-  "name": "relight-example",
+  "name": "reprop-example",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "relight:start": "relight start",
-    "relight:build": "relight build",
-    "relight:source": "relight source",
-    "relight:clean": "relight clean"
+    "reprop:start": "reprop start",
+    "reprop:build": "reprop build",
+    "reprop:source": "reprop source",
+    "reprop:clean": "reprop clean"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
-    "relight": "0.0.0-alpha.16",
+    "reprop": "0.0.0-alpha.16",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }

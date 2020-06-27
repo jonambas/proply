@@ -20,6 +20,6 @@ jobs:
         run: |
           cd example
           npm ci
-          npm run relight:build
+          npm run reprop:build
         env:
           CI: true

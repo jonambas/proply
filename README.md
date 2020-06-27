@@ -4,27 +4,27 @@ Re-light runs through your app's JSX and allows you to explore how your React co
 
 ### Demos
 
-- [Example App Demo](https://jonambas.github.io/relight/)
-- [SparkPost UI Demo](https://relight-2web2ui.now.sh/)
+- [Example App Demo](https://jonambas.github.io/reprop/)
+- [SparkPost UI Demo](https://reprop-2web2ui.now.sh/)
 
 ---
 
-![Image of the relight interface in SparkPost's web app](demo.png)
+![Image of the reprop interface in SparkPost's web app](demo.png)
 
 ---
 
 ### Getting Started
 
-Install `relight` in your app:
+Install `reprop` in your app:
 
 ```bash
-npm i relight@alpha
+npm i reprop@alpha
 ```
 
-Create a relight config file named `relight.config.js` in the root directory of your app:
+Create a reprop config file named `reprop.config.js` in the root directory of your app:
 
 ```js
-// relight.config.js
+// reprop.config.js
 module.exports = {
   // Sets page title
   title: 'My App',
@@ -33,20 +33,20 @@ module.exports = {
   // Indicates where component data will be sourced
   include: '/src/**/!(*.spec|*.test).js',
 
-  // Specifies which port Relight should use
+  // Specifies which port Reprop should use
   // Defaults to 9000
   port: 9000,
 
   // If provided, prepends this url to component locations and turns them into links
-  locationUrl: 'https://github.com/jonambas/relight/tree/master/example',
+  locationUrl: 'https://github.com/jonambas/reprop/tree/master/example',
 
   // If true, opens webpack dev server in a new tab when running the start command
   // Defaults to true
   openBrowser: true,
 
   // Specifies where to output the webpack build
-  // Defaults to "dist/relight"
-  outputPath: 'dist/relight'
+  // Defaults to "dist/reprop"
+  outputPath: 'dist/reprop'
 };
 ```
 
@@ -55,20 +55,20 @@ Add the following scripts to your npm `package.json`.
 ```js
 // package.json
 "scripts": {
-  "relight:start": "relight start",
-  "relight:build": "relight build"
+  "reprop:start": "reprop start",
+  "reprop:build": "reprop build"
 }
 ```
 
-And finally, run relight
+And finally, run reprop
 
 ```bash
-npm run relight:start
+npm run reprop:start
 ```
 
 ### Limitations
 
-relight uses typescript's compiler API to parse through your JSX.
+Reprop uses typescript's compiler API to parse through your JSX.
 
 - Components will only be detected when explicitly rendered with JSX, ie `<MyComponent />`.
 - Components may not accurately represent their `displayName` if they are aliased or renamed.

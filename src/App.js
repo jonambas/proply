@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@sweatpants/box';
 import Table from './Table';
 import ThemeSwitcher from './ThemeSwitcher';
-import config from '__RELIGHT_CONFIG__';
+import config from '__REPROP_CONFIG__';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           px="300"
         >
           <Box as="h1" fontSize="300" lineHeight="1.5em" mb="800">
-            {config.title || 'Relight'}
+            {config.title || 'Reprop'}
           </Box>
 
           <Table config={config} />

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "relight": "bin/cli.js"
+    "reprop": "bin/cli.js"
   },
   "scripts": {
     "format": "prettier --write '**/*.{js,md}'",
@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonambas/re-light.git"
+    "url": "git+https://github.com/jonambas/reprop.git"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonambas/re-light/issues"
+    "url": "https://github.com/jonambas/reprop/issues"
   },
-  "homepage": "https://github.com/jonambas/re-light#readme",
+  "homepage": "https://github.com/jonambas/reprop#readme",
   "dependencies": {
     "@babel/core": "^7.7.7",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
