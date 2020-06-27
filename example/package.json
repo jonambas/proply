@@ -1,18 +1,18 @@
 {
-  "name": "reprop-example",
+  "name": "proply-example",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "reprop:start": "reprop start",
-    "reprop:build": "reprop build",
-    "reprop:source": "reprop source",
-    "reprop:clean": "reprop clean"
+    "proply:start": "proply start",
+    "proply:build": "proply build",
+    "proply:source": "proply source",
+    "proply:clean": "proply clean"
   },
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
-    "reprop": "0.0.0-alpha.16",
+    "proply": "0.0.0-alpha.16",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
