@@ -1,6 +1,6 @@
 ## What is this?
 
-Relight runs through your app's JSX and allows you to explore how your React components are being used. Relight provides a standalone environment that can be used or deployed with your design system documentation.
+Re-light runs through your app's JSX and allows you to explore how your React components are being used. Re-light provides a standalone environment that can be used or deployed with your design system documentation.
 
 ### Demos
 
