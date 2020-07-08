@@ -306,7 +306,7 @@ function TableWrapper({ config }) {
     state
   } = useTable({ data, columns, globalFilter: getFilteredResults }, useGlobalFilter);
 
-  const firstPageRows = rows.slice(0, 500);
+  const firstPageRows = rows.slice(0, 250);
 
   return (
     <>
