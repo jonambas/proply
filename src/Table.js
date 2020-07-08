@@ -306,7 +306,7 @@ function TableWrapper({ config }) {
     state
   } = useTable({ data, columns, globalFilter: getFilteredResults }, useGlobalFilter);
 
-  const firstPageRows = rows.slice(0, 1000);
+  const firstPageRows = rows.slice(0, 500);
 
   return (
     <>
@@ -338,15 +338,16 @@ function TableWrapper({ config }) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {firstPageRows.map((row, i) => {
+          {firstPageRows.map((row) => {
             prepareRow(row);
+            console.log(row);
             return (
               <TableRowWrapper
                 config={config}
                 {...row.getRowProps()}
                 cells={row.cells}
                 propConfig={row.values.props}
-                key={i}
+                key={row.id}
               />
             );
           })}
