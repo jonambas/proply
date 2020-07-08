@@ -1,3 +1,3 @@
 function Number() {
-  return <Box size={100} />;
+  return <Box size={100} weight={300} />;
 }

@@ -69,6 +69,7 @@ export function Tr(props) {
       borderColor="border"
       verticalAlign="center"
       tabIndex="0"
+      height="2rem"
       {...props}
     />
   );

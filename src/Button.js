@@ -27,7 +27,8 @@ function Button(props) {
       lineHeight="1.5em"
       fontWeight="medium"
       style={{
-        cursor: 'pointer'
+        cursor: 'pointer',
+        whiteSpace: 'nowrap'
       }}
       {...props}
     />
