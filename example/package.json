@@ -12,7 +12,7 @@
   "author": "Jon Ambas",
   "license": "MIT",
   "dependencies": {
-    "proply": "0.0.0-alpha.20",
+    "proply": "0.0.0-alpha.21",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
