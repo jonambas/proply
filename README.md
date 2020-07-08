@@ -4,7 +4,7 @@ Proply runs through your app's JSX and allows you to explore how your React comp
 
 ### Demos
 
-- [Example App Demo](https://jonambas.github.io/proply/)
+- [Example App Demo](https://proply-demo.vercel.app/)
 - [SparkPost UI Demo](https://proply-2web2ui.now.sh/)
 
 ---
