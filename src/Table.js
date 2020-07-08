@@ -235,7 +235,7 @@ function TableRowWrapper(props) {
 
           if (cell.column.id === 'open') {
             return (
-              <Td key={i}>
+              <Td key={i} {...cell.getCellProps()}>
                 <Box
                   as="span"
                   justifyContent="flex-end"
@@ -306,7 +306,7 @@ function TableWrapper({ config }) {
     state
   } = useTable({ data, columns, globalFilter: getFilteredResults }, useGlobalFilter);
 
-  const firstPageRows = rows.slice(0, 250);
+  const firstPageRows = rows.slice(0, 150);
 
   return (
     <>
