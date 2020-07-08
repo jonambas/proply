@@ -29,22 +29,16 @@ module.exports = {
   // Sets page title
   title: 'My App',
 
-  // Glob pattern for your app's code
-  // Indicates where component data will be sourced
+  // Glob pattern for your app's code, where component data will be sourced
   include: '/src/**/!(*.spec|*.test).js',
 
   // Specifies which port Proply should use
-  // Defaults to 9000
   port: 9000,
 
   // If provided, prepends this url to component locations and turns them into links
   locationUrl: 'https://github.com/jonambas/proply/tree/master/example',
 
-  // If true, opens webpack dev server in a new tab when running the start command
-  // Defaults to true
-  openBrowser: true,
-
-  // Specifies where to output the webpack build
+  // Where to put proply's build
   // Defaults to "dist/proply"
   outputPath: 'dist/proply'
 };
@@ -64,6 +58,7 @@ And finally, run proply
 
 ```bash
 npm run proply:start
+# That's it!
 ```
 
 ### Limitations
