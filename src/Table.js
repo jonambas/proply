@@ -14,8 +14,7 @@ const Focus = styled(Box)`
   &:focus {
     z-index: 1;
     outline: none;
-    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.colors.bg},
-      0px 0px 0px 4px ${(props) => props.theme.colors.fg};
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.colors.link};
   }
 `;
 
@@ -23,7 +22,7 @@ function Input(props) {
   return (
     <Focus
       border="1px solid #fff"
-      borderColor="fg"
+      borderColor="border"
       borderRadius="1px"
       fontSize="100"
       lineHeight="1.5em"
@@ -41,7 +40,7 @@ function Select(props) {
   return (
     <Box position="relative">
       <Focus
-        borderColor="fg"
+        borderColor="border"
         borderRadius="1px"
         fontSize="100"
         lineHeight="1.5em"
@@ -199,12 +198,98 @@ function GlobalFilter(props) {
   );
 }
 
+function TableRowWrapper(props) {
+  const [open, setOpen] = React.useState(false);
+  const [show, setShow] = React.useState(false);
+
+  const hasProps = props.propConfig.length;
+  function handleShow() {
+    if (hasProps) {
+      setShow(true);
+    }
+  }
+
+  return (
+    <>
+      <Tr
+        onFocus={handleShow}
+        onBlur={() => setShow(false)}
+        onMouseOver={handleShow}
+        onMouseOut={() => setShow(false)}
+      >
+        {props.cells.map((cell, i) => {
+          if (cell.column.id === 'props') {
+            return <PropTd key={i} value={cell.value} {...cell.getCellProps()} />;
+          }
+
+          if (cell.column.id === 'location') {
+            return (
+              <LocationTd
+                key={i}
+                locationUrl={props.config.locationUrl}
+                value={cell.value}
+                {...cell.getCellProps()}
+              />
+            );
+          }
+
+          if (cell.column.id === 'open') {
+            return (
+              <Td key={i}>
+                <Box
+                  as="span"
+                  justifyContent="flex-end"
+                  display={hasProps ? 'flex' : 'none'}
+                  opacity={hasProps && show ? '1' : '0'}
+                >
+                  <Button onClick={() => setOpen(!open)} py="100">
+                    {open ? 'Hide Props' : 'Show Props'}
+                  </Button>
+                </Box>
+              </Td>
+            );
+          }
+
+          return (
+            <Td {...cell.getCellProps()} key={i}>
+              {cell.render('Cell')}
+            </Td>
+          );
+        })}
+      </Tr>
+      {hasProps && open ? (
+        <tr>
+          <td colSpan="4">
+            <Table bg="#f5f8fa" mb="100">
+              <tbody>
+                {props.propConfig.map((prop, i) => {
+                  return (
+                    <Tr key={i} color="#39444d">
+                      <Td py="100" width="18.5%" fontSize="100">
+                        {prop.name}
+                      </Td>
+                      <Td py="100" fontSize="100">
+                        {prop.value.toString()}
+                      </Td>
+                    </Tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </td>
+        </tr>
+      ) : null}
+    </>
+  );
+}
+
 function TableWrapper({ config }) {
   const columns = React.useMemo(() => {
     return [
       { Header: 'Component', accessor: 'name' },
       { Header: 'Location', accessor: 'location' },
-      { Header: 'Prop Configuration', accessor: 'props' }
+      { Header: 'Prop Configuration', accessor: 'props' },
+      { Header: '', accessor: 'open' }
     ];
   }, []);
 
@@ -244,35 +329,25 @@ function TableWrapper({ config }) {
         <thead>
           {headerGroups.map((headerGroup) => (
             <Tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                <Th {...column.getHeaderProps()}>{column.render('Header')}</Th>
+              {headerGroup.headers.map((column, j) => (
+                <Th {...column.getHeaderProps()} key={j}>
+                  {column.render('Header')}
+                </Th>
               ))}
             </Tr>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {firstPageRows.map((row) => {
+          {firstPageRows.map((row, i) => {
             prepareRow(row);
             return (
-              <Tr {...row.getRowProps()}>
-                {row.cells.map((cell) => {
-                  if (cell.column.id === 'props') {
-                    return <PropTd value={cell.value} {...cell.getCellProps()} />;
-                  }
-
-                  if (cell.column.id === 'location') {
-                    return (
-                      <LocationTd
-                        locationUrl={config.locationUrl}
-                        value={cell.value}
-                        {...cell.getCellProps()}
-                      />
-                    );
-                  }
-
-                  return <Td {...cell.getCellProps()}>{cell.render('Cell')}</Td>;
-                })}
-              </Tr>
+              <TableRowWrapper
+                config={config}
+                {...row.getRowProps()}
+                cells={row.cells}
+                propConfig={row.values.props}
+                key={i}
+              />
             );
           })}
         </tbody>

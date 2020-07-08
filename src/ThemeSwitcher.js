@@ -1,7 +1,7 @@
 import React from 'react';
 import Pants from '@sweatpants/theme';
-// import Box from '@sweatpants/box';
 // import styled from 'styled-components';
+// import Box from '@sweatpants/box';
 // import Hidden from '@sweatpants/screenreaderonly';
 
 // const Switch = styled.button`
@@ -55,21 +55,27 @@ const themes = [
     colors: {
       bg: 'white',
       fg: 'black',
-      mg: '#d9e0e6'
+      buttonBg: '#d9e0e6',
+      link: '#1273e6',
+      border: '#d9e0e6'
     }
   },
   {
     colors: {
       bg: 'black',
       fg: 'white',
-      mg: '#1e1e1e'
+      buttonBg: '#1a1a1a',
+      link: 'white',
+      border: '#2c2c2c'
     }
   },
   {
     colors: {
-      bg: '#f5f8fa',
-      fg: '#2c353d',
-      mg: '#abd2ff'
+      bg: '#ebf0f5',
+      fg: '#39444d',
+      buttonBg: '#a2adb8',
+      link: 'black',
+      border: '#c5ced6'
     }
   }
 ];
@@ -88,9 +94,9 @@ function ThemeSwitcher(props) {
         ...themes[theme]
       }}
     >
-      {/* TODO <Box position="absolute" top="400" right="400">
+      {/* <Box position="absolute" top="400" right="400">
         <Switch onClick={handleClick} type="button">
-          <svg focusable="false" viewBox="0 0 24 24" width="20" height="20">
+          <svg focusable="false" viewBox="0 0 24 24" width="21" height="21">
             <path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"></path>
           </svg>
         </Switch>

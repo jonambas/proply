@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import Box from '@sweatpants/box';
 
 export function Table(props) {
@@ -6,11 +7,11 @@ export function Table(props) {
 }
 
 export function Th(props) {
-  return <Box as="th" textAlign="left" py="300" fontSize="100" {...props} />;
+  return <Box as="th" textAlign="left" py="300" px="400" fontSize="100" {...props} />;
 }
 
 export function Td(props) {
-  return <Box as="td" textAlign="left" py="300" {...props} />;
+  return <Box as="td" textAlign="left" py="400" px="400" {...props} />;
 }
 
 export function PropTd({ value, ...rest }) {
@@ -20,10 +21,8 @@ export function PropTd({ value, ...rest }) {
         <Box
           display="inline-block"
           m="100"
-          px="100"
-          py="2px"
+          py="0"
           borderRadius="200"
-          bg="bg"
           fontSize="100"
           key={`${i}-${prop.name}`}
         >
@@ -43,7 +42,7 @@ export function LocationTd({ value, locationUrl, ...rest }) {
           href={`${locationUrl}/${value.fileName}#L${value.line}`}
           title={`Visit ${value.fileName}`}
           isExternalLink
-          color="fg"
+          color="link"
         >
           {value.fileName}:{value.line}
         </Box>
@@ -54,6 +53,23 @@ export function LocationTd({ value, locationUrl, ...rest }) {
   );
 }
 
+const StyledTr = styled(Box)`
+  &:focus {
+    outline: none;
+    background: #f5f8fa;
+  }
+`;
+
 export function Tr(props) {
-  return <Box as="tr" verticalAlign="top" {...props} />;
+  return (
+    <StyledTr
+      as="tr"
+      verticalAlign="top"
+      borderBottom="1px solid #fff"
+      borderColor="border"
+      verticalAlign="center"
+      tabIndex="0"
+      {...props}
+    />
+  );
 }
