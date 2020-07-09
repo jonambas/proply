@@ -56,7 +56,7 @@ export function LocationTd({ value, locationUrl, ...rest }) {
 const StyledTr = styled(Box)`
   &:focus {
     outline: none;
-    background: #f5f8fa;
+    background: ${(props) => props.theme.colors.tableBg};
   }
 `;
 
@@ -64,7 +64,6 @@ export function Tr(props) {
   return (
     <StyledTr
       as="tr"
-      verticalAlign="top"
       borderBottom="1px solid #fff"
       borderColor="border"
       verticalAlign="center"

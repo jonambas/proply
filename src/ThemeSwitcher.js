@@ -1,26 +1,26 @@
 import React from 'react';
 import Pants from '@sweatpants/theme';
-// import styled from 'styled-components';
-// import Box from '@sweatpants/box';
-// import Hidden from '@sweatpants/screenreaderonly';
+import styled from 'styled-components';
+import Box from '@sweatpants/box';
+import Hidden from '@sweatpants/screenreaderonly';
 
-// const Switch = styled.button`
-//   outline: none;
-//   border: none;
-//   border-radius: 50%;
-//   cursor: pointer;
-//   height: 2rem;
-//   width: 2rem;
-//   position: relative;
-//   box-shadow: 0px 0px 0px 1px ${(props) => props.theme.colors.bg};
-//   transition: box-shadow 0.1s;
-//   &:focus {
-//     z-index: 1;
-//     outline: none;
-//     box-shadow: 0px 0px 0px 2px ${(props) => props.theme.colors.bg},
-//       0px 0px 0px 4px ${(props) => props.theme.colors.fg};
-//   }
-// `;
+const Switch = styled.button`
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  position: relative;
+  box-shadow: 0px 0px 0px 1px ${(props) => props.theme.colors.bg};
+  transition: box-shadow 0.1s;
+  &:focus {
+    z-index: 1;
+    outline: none;
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.colors.bg},
+      0px 0px 0px 4px ${(props) => props.theme.colors.fg};
+  }
+`;
 
 const base = {
   space: {
@@ -57,35 +57,39 @@ const themes = [
       fg: 'black',
       buttonBg: '#d9e0e6',
       link: '#1273e6',
-      border: '#d9e0e6'
+      border: '#d9e0e6',
+      tableBg: '#f5f8fa',
+      tableFg: '#39444d'
     }
   },
   {
     colors: {
-      bg: 'black',
-      fg: 'white',
-      buttonBg: '#1a1a1a',
-      link: 'white',
-      border: '#2c2c2c'
-    }
-  },
-  {
-    colors: {
-      bg: '#ebf0f5',
-      fg: '#39444d',
-      buttonBg: '#a2adb8',
-      link: 'black',
-      border: '#c5ced6'
+      bg: '#0F1112',
+      fg: '#eeeff2',
+      buttonBg: '#25252f',
+      link: '#aeafb2',
+      border: '#1f1f25',
+      tableBg: '#16161a',
+      tableFg: '#aeafb2'
     }
   }
+  // {
+  //   colors: {
+  //     bg: '#ebf0f5',
+  //     fg: '#39444d',
+  //     buttonBg: '#a2adb8',
+  //     link: 'black',
+  //     border: '#c5ced6'
+  //   }
+  // }
 ];
 
 function ThemeSwitcher(props) {
-  const [theme] = React.useState(0);
+  const [theme, setTheme] = React.useState(0);
 
-  // function handleClick() {
-  //   setTheme(theme === themes.length - 1 ? 0 : theme + 1);
-  // }
+  function handleClick() {
+    setTheme(theme === themes.length - 1 ? 0 : theme + 1);
+  }
 
   return (
     <Pants
@@ -94,13 +98,20 @@ function ThemeSwitcher(props) {
         ...themes[theme]
       }}
     >
-      {/* <Box position="absolute" top="400" right="400">
+      <Box position="absolute" top="600" right="600">
         <Switch onClick={handleClick} type="button">
-          <svg focusable="false" viewBox="0 0 24 24" width="21" height="21">
+          <svg
+            focusable="false"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            style={{ marginTop: '2px' }}
+          >
             <path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58c2.05 0 4.1-.78 5.66-2.34 3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"></path>
           </svg>
+          <Hidden>Switch Theme</Hidden>
         </Switch>
-      </Box> */}
+      </Box>
       {props.children}
     </Pants>
   );

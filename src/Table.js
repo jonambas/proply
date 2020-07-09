@@ -260,11 +260,11 @@ function TableRowWrapper(props) {
       {hasProps && open ? (
         <tr>
           <td colSpan="4">
-            <Table bg="#f5f8fa" mb="100">
+            <Table bg="tableBg" mb="100">
               <tbody>
                 {props.propConfig.map((prop, i) => {
                   return (
-                    <Tr key={i} color="#39444d">
+                    <Tr key={i} color="tableFg">
                       <Td py="100" width="18.5%" fontSize="100">
                         {prop.name}
                       </Td>
