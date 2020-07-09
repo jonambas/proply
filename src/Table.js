@@ -308,7 +308,7 @@ function TableWrapper({ config }) {
 
   const [slice, setSlice] = React.useState(100);
 
-  const showedRows = rows.slice(0, slice);
+  const showedRows = React.useMemo(() => rows.slice(0, slice), [rows, slice]);
   const resultLength = rows.length;
 
   return (
