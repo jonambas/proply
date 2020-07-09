@@ -306,7 +306,10 @@ function TableWrapper({ config }) {
     state
   } = useTable({ data, columns, globalFilter: getFilteredResults }, useGlobalFilter);
 
-  const firstPageRows = rows.slice(0, 150);
+  const [slice, setSlice] = React.useState(100);
+
+  const showedRows = React.useMemo(() => rows.slice(0, slice), [rows, slice]);
+  const resultLength = rows.length;
 
   return (
     <>
@@ -318,11 +321,7 @@ function TableWrapper({ config }) {
       <Filters globalFilter={state.globalFilter} setGlobalFilter={setGlobalFilter} />
       <Box mb="600">
         <Box as="span" fontSize="13px" color="fg">
-          Showing
-          <Box as="span" color="fg">
-            {' '}
-            {firstPageRows.length} of {preGlobalFilteredRows.length} components
-          </Box>
+          Showing {showedRows.length} of {resultLength} components
         </Box>
       </Box>
       <Table {...getTableProps()}>
@@ -338,7 +337,7 @@ function TableWrapper({ config }) {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {firstPageRows.map((row) => {
+          {showedRows.map((row) => {
             prepareRow(row);
             console.log(row);
             return (
@@ -353,6 +352,11 @@ function TableWrapper({ config }) {
           })}
         </tbody>
       </Table>
+      {showedRows.length < resultLength && (
+        <Box mt="500">
+          <Button onClick={() => setSlice(slice + 50)}>Show More Results</Button>
+        </Box>
+      )}
     </>
   );
 }
