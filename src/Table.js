@@ -283,6 +283,9 @@ function TableRowWrapper(props) {
   );
 }
 
+const SLICE_INCREMENT = 50;
+const SLICE_DEFAULT = 100;
+
 function TableWrapper({ config }) {
   const columns = React.useMemo(() => {
     return [
@@ -303,10 +306,15 @@ function TableWrapper({ config }) {
     prepareRow,
     preGlobalFilteredRows,
     setGlobalFilter,
-    state
+    state = {}
   } = useTable({ data, columns, globalFilter: getFilteredResults }, useGlobalFilter);
+  const { globalFilter = { filters: [] } } = state;
+  const [slice, setSlice] = React.useState(SLICE_DEFAULT);
 
-  const [slice, setSlice] = React.useState(100);
+  // Resets slice when filters change
+  React.useEffect(() => {
+    setSlice(SLICE_DEFAULT);
+  }, [globalFilter.global, globalFilter.filters.length]);
 
   const showedRows = React.useMemo(() => rows.slice(0, slice), [rows, slice]);
   const resultLength = rows.length;
@@ -339,7 +347,6 @@ function TableWrapper({ config }) {
         <tbody {...getTableBodyProps()}>
           {showedRows.map((row) => {
             prepareRow(row);
-            console.log(row);
             return (
               <TableRowWrapper
                 config={config}
@@ -354,7 +361,7 @@ function TableWrapper({ config }) {
       </Table>
       {showedRows.length < resultLength && (
         <Box mt="500">
-          <Button onClick={() => setSlice(slice + 50)}>Show More Results</Button>
+          <Button onClick={() => setSlice(slice + SLICE_INCREMENT)}>Show More Results</Button>
         </Box>
       )}
     </>
