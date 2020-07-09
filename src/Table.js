@@ -31,6 +31,7 @@ function Input(props) {
       as="input"
       type="text"
       bg="bg"
+      color="fg"
       {...props}
     />
   );
