@@ -57,7 +57,7 @@
     "typescript": "^3.7.4",
     "webpack": "^4.41.4",
     "webpack-dev-server": "^3.10.1",
-    "yargs-parser": "^16.1.0"
+    "yargs-parser": "^18.1.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.13.0",
