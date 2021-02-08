@@ -18,6 +18,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: example project npm install and build
         working-directory: ./example
-        run: npm ci && npm run build:proply
+        run: npm install && npm run build:proply
         env:
           CI: true
