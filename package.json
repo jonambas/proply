@@ -40,9 +40,9 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "@sweatpants/box": "0.0.2",
-    "@sweatpants/screenreaderonly": "0.0.4",
-    "@sweatpants/theme": "0.0.2",
+    "@sweatpants/box": "0.0.5",
+    "@sweatpants/screenreaderonly": "0.0.5",
+    "@sweatpants/theme": "0.0.5",
     "babel-loader": "^8.0.6",
     "chalk": "^4.0.0",
     "find-up": "^4.1.0",
@@ -75,11 +75,11 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   },
   "peerDependencies": {
-    "react": "^16.8",
-    "react-dom": "^16.8"
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
   }
 }
