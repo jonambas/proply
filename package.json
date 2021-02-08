@@ -8,8 +8,7 @@
   },
   "scripts": {
     "format": "prettier --write '**/*.{js,md}'",
-    "lint": "eslint .",
-    "ci": "cd example && npm ci && npm run proply:build"
+    "lint": "eslint ."
   },
   "husky": {
     "hooks": {
