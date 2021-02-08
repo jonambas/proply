@@ -19,7 +19,7 @@ function Button(props) {
       as="button"
       px="300"
       py="200"
-      borderRadius="1px"
+      borderRadius="5px"
       border="none"
       bg="buttonBg"
       color="fg"

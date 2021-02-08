@@ -10,11 +10,11 @@ import styled from 'styled-components';
 const Focus = styled(Box)`
   position: relative;
   box-shadow: 0px 0px 0px 1px ${(props) => props.theme.colors.bg};
-  transition: box-shadow 0.1s;
+  transition: box-shadow 0.3s;
   &:focus {
     z-index: 1;
     outline: none;
-    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.colors.link};
+    box-shadow: 0px 0px 0px 1px ${(props) => props.theme.colors.fg};
   }
 `;
 
@@ -23,7 +23,7 @@ function Input(props) {
     <Focus
       border="1px solid #fff"
       borderColor="border"
-      borderRadius="1px"
+      borderRadius="5px"
       fontSize="100"
       lineHeight="1.5em"
       width="100%"
@@ -42,7 +42,7 @@ function Select(props) {
     <Box position="relative">
       <Focus
         borderColor="border"
-        borderRadius="1px"
+        borderRadius="5px"
         fontSize="100"
         lineHeight="1.5em"
         width="100%"
@@ -118,10 +118,12 @@ function Filters(props) {
           <Box
             display="grid"
             gridTemplateColumns={
-              filter.type === 'prop' ? '0.5fr 1fr 0.5fr 1fr 0.25fr' : '0.5fr 0.5fr 1fr 1fr 0.25fr'
+              filter.type === 'prop'
+                ? '0.75fr 0.75fr 0.5fr 1fr 0.25fr'
+                : '0.75fr 0.5fr 0.75fr 1fr 0.25fr'
             }
             gridGap="200"
-            mb="100"
+            mb="200"
           >
             <Select onChange={(e) => setValue(i, 'type', e.target.value)} value={filter.type}>
               <option value="prop">Prop</option>
@@ -173,7 +175,7 @@ function Filters(props) {
           </Box>
         </Box>
       ))}
-      <Button mt="100" onClick={addNewFilter}>
+      <Button mt="200" onClick={addNewFilter}>
         Add Filter
       </Button>
     </Box>
