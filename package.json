@@ -55,8 +55,8 @@
     "react-table": "^7.0.0-rc.15",
     "styled-components": "^5.1.1",
     "typescript": "^3.7.4",
-    "webpack": "^4.41.4",
-    "webpack-dev-server": "^3.10.1",
+    "webpack": "^4.46.0",
+    "webpack-dev-server": "^3.11.2",
     "yargs-parser": "^18.1.2"
   },
   "devDependencies": {
