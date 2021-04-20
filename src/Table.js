@@ -288,6 +288,7 @@ function TableRowWrapper(props) {
 
 const SLICE_INCREMENT = 50;
 const SLICE_DEFAULT = 100;
+const data = raw;
 
 function TableWrapper({ config }) {
   const columns = React.useMemo(() => {
@@ -298,8 +299,6 @@ function TableWrapper({ config }) {
       { Header: '', accessor: 'open' }
     ];
   }, []);
-
-  const data = React.useMemo(() => raw, []);
 
   const {
     getTableProps,
